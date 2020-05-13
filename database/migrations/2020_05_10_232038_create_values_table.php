@@ -18,6 +18,7 @@ class CreateValuesTable extends Migration
             $table->integer('values');
             $table->date('date');
             $table->timestamps();
+            $table->unsignedBigInteger('sensor_value_id')->nullable();
         });
     }
 

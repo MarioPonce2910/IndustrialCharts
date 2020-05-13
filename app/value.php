@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class sensor extends Model
+class value extends Model
 {
-    protected $table = 'sensores';
-
-
+    protected $table = 'values';
 }

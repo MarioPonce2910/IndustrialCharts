@@ -20,8 +20,7 @@ class Fks extends Migration
         });
         Schema::table('sensores', function (Blueprint $table) {
             $table->unsignedBigInteger('value_id')->nullable();
-        
-            $table->foreign('value_id')->references('id')->on('values');
+            $table->foreign('value_id')->references('sensor_value_id')->on('values');
         });
     }
 
