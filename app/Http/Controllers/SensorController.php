@@ -9,18 +9,25 @@ class SensorController extends Controller
 {
     public function index()
     {
+        $values = sensor::find(1)->values;
         $sensors = sensor::orderBy('id', 'desc')->get();
-        return view('sensors',['sensors'=>$sensors]);
+        return view('sensors',['sensors'=>$sensors],['values'=>$values]);
     }
-    public function psw(Request $request){
+    public function post(Request $request){
         $validate = $this->validate($request,[
-            'value' => ['required']
+            'value' => ['required'],
         ]);
             $id = $request->input('id');
             $value = $request->input('value');
-            $data = value::where('id', $id)->first();
+            $date = date('Y-m-d');
+            $hr = date('His');
 
-            $data->value = $value;
+            $data = new value;
+
+            $data->values = $value;
+            $data->sensor_id = $id;
+            $data->date = $date;
+            $data->hr = $hr;
 
             $data->save();
 
@@ -30,8 +37,4 @@ class SensorController extends Controller
             ]);
 
         }
-    {
-        $sensors = value::orderBy('id', 'desc')->get();
-        return view('sensors',['sensors'=>$sensors]);
-    }
 }

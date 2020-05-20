@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/sensors', 'SensorController@index')->name('sensors.index');
-Route::post('/sensors/post','SensorController@post')->name('sensors.post');
+
 Route::get('/users','UsersController@users')->name('users');
 Route::get('/users/{user}','UsersController@user')->name('users.user');
 Route::post('/users/psw','UsersController@psw')->name('users.psw');

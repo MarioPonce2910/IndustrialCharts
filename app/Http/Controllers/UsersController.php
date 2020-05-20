@@ -19,9 +19,6 @@ class UsersController extends Controller
     }
 
     public function psw(Request $request){
-        // $validate = $this->validate($request,[
-        //     'password' => ['required', 'min:6', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/']
-        // ]);
         $validate = $this->validate($request,[
             'password' => ['required', 'string', 'min:6', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/']
         ]);
@@ -36,10 +33,7 @@ class UsersController extends Controller
             return redirect()->route('users.user', [$userid]);
 
         }
-        
-        
-        
-        //return view('user',['user'=>$request]);
+
     }
 
 

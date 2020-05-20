@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+
+
+Route::post('/sensors/post','SensorController@post')->name('sensors.post');
+

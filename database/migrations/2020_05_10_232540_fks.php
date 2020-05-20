@@ -14,13 +14,10 @@ class Fks extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('sensor_id')->nullable();
-        
             $table->foreign('sensor_id')->references('id')->on('sensores');
         });
-        Schema::table('sensores', function (Blueprint $table) {
-            $table->unsignedBigInteger('value_id')->nullable();
-            $table->foreign('value_id')->references('sensor_value_id')->on('values');
+        Schema::table('values', function (Blueprint $table) {
+            $table->foreign('sensor_id')->references('id')->on('sensores');
         });
     }
 
